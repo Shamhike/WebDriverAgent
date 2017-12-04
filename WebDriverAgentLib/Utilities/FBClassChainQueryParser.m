@@ -7,7 +7,6 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import "FBExceptionHandler.h"
 #import "FBClassChainQueryParser.h"
 #import "FBErrorBuilder.h"
 #import "FBElementTypeTransformer.h"
@@ -518,17 +517,6 @@ static NSNumberFormatter *numberFormatter = nil;
         NSString *description = [NSString stringWithFormat:@"Unexpected token '%@'. The type name can be set only once.", token.asString];
         *error = [self.class compilationErrorWithQuery:originalQuery description:description];
         return nil;
-      }
-      @try {
-        chainElementType = [FBElementTypeTransformer elementTypeWithTypeName:token.asString];
-        isTypeSet = YES;
-      } @catch (NSException *e) {
-        if ([e.name isEqualToString:FBInvalidArgumentException]) {
-          NSString *description = [NSString stringWithFormat:@"'%@' class name is unknown to WDA", token.asString];
-          *error = [self.class compilationErrorWithQuery:originalQuery description:description];
-          return nil;
-        }
-        @throw e;
       }
     } else if ([token isKindOfClass:FBStarToken.class]) {
       if (isTypeSet) {

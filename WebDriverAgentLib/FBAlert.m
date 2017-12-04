@@ -13,7 +13,6 @@
 
 #import "FBApplication.h"
 #import "FBErrorBuilder.h"
-#import "FBFindElementCommands.h"
 #import "FBSpringboardApplication.h"
 #import "FBLogger.h"
 #import "FBXCodeCompatibility.h"

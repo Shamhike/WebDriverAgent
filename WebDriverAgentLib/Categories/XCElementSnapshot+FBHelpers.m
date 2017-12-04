@@ -9,7 +9,7 @@
 
 #import "XCElementSnapshot+FBHelpers.h"
 
-#import "FBFindElementCommands.h"
+
 #import "FBXPathCreator.h"
 #import "FBRunLoopSpinner.h"
 #import "FBLogger.h"
